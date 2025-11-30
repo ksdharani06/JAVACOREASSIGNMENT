@@ -30,11 +30,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-               "id=" + studentId +
-               ", name='" + name + '\'' +
-               ", grade=" + grade +
-               ", marks=" + marks +
-               '}';
+        return "Student{" +  "id=" + studentId +", name='" + name + '\'' +  ", grade=" + grade +", marks=" + marks + '}';
     }
 }
