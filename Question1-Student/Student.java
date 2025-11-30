@@ -11,7 +11,7 @@ public class Student {
         this.marks = marks;
     }
 
-    // Getters
+ 
     public int getStudentId() {
         return studentId;
     }
