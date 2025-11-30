@@ -1,4 +1,5 @@
 public class Student {
+
     private int studentId;
     private String name;
     private char grade;
@@ -11,7 +12,6 @@ public class Student {
         this.marks = marks;
     }
 
- 
     public int getStudentId() {
         return studentId;
     }
@@ -30,6 +30,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +  "id=" + studentId +", name='" + name + '\'' +  ", grade=" + grade +", marks=" + marks + '}';
+        return studentId + "  " + name + "  " + grade + "  " + marks;
     }
 }
