@@ -5,12 +5,12 @@ public class BankingSystem {
 
         ArrayList<Account> accounts = new ArrayList<>();
 
-        // 3 Savings Accounts
+
         accounts.add(new SavingsAccount("01", "Ravi", 5000));
         accounts.add(new SavingsAccount("02", "Anita", 3000));
         accounts.add(new SavingsAccount("03", "Kiran", 7000));
 
-        // 2 Current Accounts
+
         accounts.add(new CurrentAccount("C01", "Meena", 2000));
         accounts.add(new CurrentAccount("C02", "Rahul", 1000));
 
@@ -19,7 +19,7 @@ public class BankingSystem {
             acc.deposit(1000);
             acc.withdraw(2000);
             System.out.println("Balance: " + acc.getBalance());
-            System.out.println("------------------");
+            System.out.println("======================================");
         }
         System.out.println();
         System.out.println("Interest Details:");
