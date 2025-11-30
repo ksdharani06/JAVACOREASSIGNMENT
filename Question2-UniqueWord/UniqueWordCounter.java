@@ -1,53 +1,78 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class UniqueWordCounter {
+public class UniqueWordCounterSimple {
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-   
         System.out.println("Enter paragraph:");
         String input = sc.nextLine();
 
+        
         input = input.toLowerCase();
+
+        // this line is new to me and this is for my understanding remove special characters
         input = input.replaceAll("[^a-z ]", "");
 
-        String[] words = input.split("\\s+");
+       
+        String[] words = input.split(" ");
 
-        Map<String, Integer> map = new HashMap<>();
+        
+        String[] uniqueWords = new String[words.length];
+        int[] count = new int[words.length];
 
-        for (String word : words) {
-            if (map.containsKey(word)) {
-                map.put(word, map.get(word) + 1);
+        int uniqueCount = 0;
+
+        for (int i = 0; i < words.length; i++) {
+
+            if (words[i].equals("")) {
+                continue; 
+            }
+
+            int index = -1;
+
+            
+            for (int j = 0; j < uniqueCount; j++) {
+                if (uniqueWords[j].equals(words[i])) {
+                    index = j;
+                    break;
+                }
+            }
+
+            if (index == -1) {
+                uniqueWords[uniqueCount] = words[i];
+                count[uniqueCount] = 1;
+                uniqueCount++;
             } else {
-                map.put(word, 1);
+                count[index]++;
             }
         }
 
-       
-        Map<String, Integer> sortedMap = new TreeMap<>(map);
-
-        System.out.println("Word Frequency (Alphabetical):");
-        for (Map.Entry<String, Integer> entry : sortedMap.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+    
+        System.out.println("Word Frequency:");
+        for (int i = 0; i < uniqueCount; i++) {
+            System.out.println(uniqueWords[i] + " : " + count[i]);
         }
 
    
-        List<Map.Entry<String, Integer>> list =
-                new ArrayList<>(map.entrySet());
+        System.out.println("Top 3 Most Frequent Words:");
+        for (int k = 1; k <= 3; k++) {
 
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-            public int compare(Map.Entry<String, Integer> e1,
-                               Map.Entry<String, Integer> e2) {
-                return e2.getValue() - e1.getValue(); // descending
+            int max = 0;
+            int pos = -1;
+
+            for (int i = 0; i < uniqueCount; i++) {
+                if (count[i] > max) {
+                    max = count[i];
+                    pos = i;
+                }
             }
-        });
 
-        System.out.println("\nTop 3 Most Frequent Words:");
-        for (int i = 0; i < 3 && i < list.size(); i++) {
-            Map.Entry<String, Integer> entry = list.get(i);
-            System.out.println((i + 1) + ". " +
-                    entry.getKey() + " : " + entry.getValue());
+            if (pos != -1) {
+                System.out.println(k + ". " + uniqueWords[pos] + " : " + count[pos]);
+                count[pos] = -1; 
+            }
         }
     }
 }
-
