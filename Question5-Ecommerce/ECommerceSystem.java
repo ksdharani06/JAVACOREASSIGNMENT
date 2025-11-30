@@ -17,10 +17,10 @@ public class ECommerceSystem {
         cart.add(new Clothing("C2", "Jeans", 2500, "32"));
         cart.add(new Clothing("C3", "Jacket", 4000, "L"));
 
-        cart.add(new Grocery("G1", "Milk", 50, LocalDate.now().plusDays(5)));
-        cart.add(new Grocery("G2", "Rice", 1000, LocalDate.now().plusDays(30)));
-        cart.add(new Grocery("G3", "Oil", 200, LocalDate.now().plusDays(6)));
-        cart.add(new Grocery("G4", "Bread", 40, LocalDate.now().plusDays(3)));
+        cart.add(new Grocery("G1", "Milk", 50, 3));
+        cart.add(new Grocery("G2", "Rice", 1000, 20));
+        cart.add(new Grocery("G3", "Oil", 200, 6));
+        cart.add(new Grocery("G4", "Bread", 40, 5));
 
         double total = 0;
         for (Product p : cart) {
