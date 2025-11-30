@@ -12,7 +12,6 @@ class Grocery extends Product {
 
     @Override
     double calculateDiscount() {
-        long days = ChronoUnit.DAYS.between(LocalDate.now(), expiryDate);
 
         if (days <= 7) {
             return getPrice() * 0.30;
