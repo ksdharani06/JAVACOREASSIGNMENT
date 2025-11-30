@@ -4,7 +4,7 @@ public class UniqueWordCounter {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Input paragraph
+   
         System.out.println("Enter paragraph:");
         String input = sc.nextLine();
 
